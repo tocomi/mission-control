@@ -1,15 +1,24 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { CaptureInput } from '../components/molecules/CaptureInput/index';
 
 export default function TabOneScreen() {
+  const [capture, setCapture] = React.useState<string>('');
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <CaptureInput
+        placeholder="何をキャプチャしますか？"
+        color="#28a"
+        setValue={setCapture}
+        onPress={() => {
+          alert(capture);
+        }}
+      />
     </View>
   );
 }
