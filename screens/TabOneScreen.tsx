@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import { CaptureInput } from '../components/molecules/CaptureInput/index';
 
 export default function TabOneScreen() {
   const [capture, setCapture] = React.useState<string>('');
+
+  const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>): void => {
+    setCapture(event.nativeEvent.text);
+  };
 
   return (
     <View style={styles.container}>
@@ -14,7 +18,7 @@ export default function TabOneScreen() {
       <CaptureInput
         placeholder="何をキャプチャしますか？"
         color="#28a"
-        setValue={setCapture}
+        onChange={handleChange}
         onPress={() => {
           alert(capture);
         }}

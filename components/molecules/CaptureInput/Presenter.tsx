@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { BasicInput } from '../../atoms/BasicInput/index';
 
 interface Props {
   placeholder: string;
   color: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (event: NativeSyntheticEvent<TextInputChangeEventData>) => void;
   onPress: () => void;
 }
 
 const Presenter = (props: Props) => {
-  const { placeholder, color, setValue, onPress } = props;
+  const { placeholder, color, onChange, onPress } = props;
   return (
     <View style={styles.wrapper}>
-      <BasicInput placeholder={placeholder} setValue={setValue} />
+      <BasicInput placeholder={placeholder} onChange={onChange} />
       <Icon onPress={onPress} style={styles.icon} name="send" color={color} />
     </View>
   );

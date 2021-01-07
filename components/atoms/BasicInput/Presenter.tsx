@@ -4,17 +4,13 @@ import { Input } from 'react-native-elements';
 
 interface Props {
   placeholder: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (event: NativeSyntheticEvent<TextInputChangeEventData>) => void;
 }
 
 const Presenter = (props: Props) => {
-  const { placeholder, setValue } = props;
+  const { placeholder, onChange } = props;
 
-  const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>): void => {
-    setValue(event.nativeEvent.text);
-  };
-
-  return <Input placeholder={placeholder} onChange={handleChange} />;
+  return <Input placeholder={placeholder} onChange={onChange} />;
 };
 
 export { Presenter };
