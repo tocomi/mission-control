@@ -6,28 +6,28 @@ import { BasicInput } from '../../atoms/BasicInput/index';
 interface Props {
   placeholder: string;
   color: string;
+  value: string;
   onChange: (event: NativeSyntheticEvent<TextInputChangeEventData>) => void;
   onPress: () => void;
 }
 
 const Presenter = (props: Props) => {
-  const { placeholder, color, onChange, onPress } = props;
+  const { placeholder, color, value, onChange, onPress } = props;
   return (
     <View style={styles.wrapper}>
-      <BasicInput placeholder={placeholder} onChange={onChange} />
-      <Icon onPress={onPress} style={styles.icon} name="send" color={color} />
+      <BasicInput placeholder={placeholder} value={value} onChange={onChange} />
+      <Icon onPress={onPress} name="send" color={color} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
+    alignItems: 'center',
+    backgroundColor: '#ccc',
     flex: 1,
     flexDirection: 'row',
     paddingHorizontal: 32,
-  },
-  icon: {
-    marginTop: 12,
   },
 });
 

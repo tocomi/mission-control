@@ -4,12 +4,13 @@ import { Presenter } from './Presenter';
 
 interface Props {
   placeholder: string;
+  value: string;
   onChange: (event: NativeSyntheticEvent<TextInputChangeEventData>) => void;
 }
 
 const BasicInput = (props: Props) => {
-  const { placeholder, onChange } = props;
-  return <Presenter placeholder={placeholder} onChange={onChange} />;
+  const { placeholder, value, onChange } = props;
+  return <Presenter placeholder={placeholder} value={value} onChange={onChange} />;
 };
 
 export { BasicInput };
