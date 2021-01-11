@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
   },
   input: {
     alignItems: 'center',
-    flex: 1,
+    borderTopColor: '#eee',
+    borderTopWidth: 1,
+    height: 56,
     justifyContent: 'center',
   },
 });

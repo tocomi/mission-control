@@ -15,7 +15,9 @@ const Presenter = (props: Props) => {
   const { placeholder, color, value, onChange, onPress } = props;
   return (
     <View style={styles.wrapper}>
-      <BasicInput placeholder={placeholder} value={value} onChange={onChange} />
+      <View style={styles.input}>
+        <BasicInput placeholder={placeholder} value={value} onChange={onChange} />
+      </View>
       <Icon onPress={onPress} name="send" color={color} />
     </View>
   );
@@ -24,10 +26,13 @@ const Presenter = (props: Props) => {
 const styles = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
-    backgroundColor: '#ccc',
     flex: 1,
     flexDirection: 'row',
-    paddingHorizontal: 32,
+    paddingHorizontal: 16,
+  },
+  input: {
+    flex: 1,
+    marginTop: 20,
   },
 });
 
