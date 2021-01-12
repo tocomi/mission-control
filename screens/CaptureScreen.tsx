@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  StyleSheet,
+  TextInputChangeEventData,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 
 import { View } from '../components/Themed';
 import { CaptureInput } from '../components/molecules/CaptureInput/index';
@@ -13,7 +19,11 @@ export default function CaptureScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 88 : 0}
+    >
       <View style={styles.captureList}>
         <CaptureList />
       </View>
@@ -29,7 +39,7 @@ export default function CaptureScreen() {
           }}
         />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -39,7 +49,7 @@ const styles = StyleSheet.create({
   },
   captureList: {
     backgroundColor: '#eee',
-    flex: 8,
+    flex: 1,
   },
   input: {
     alignItems: 'center',
