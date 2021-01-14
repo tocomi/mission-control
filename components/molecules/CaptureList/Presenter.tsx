@@ -2,53 +2,17 @@ import * as React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
-const list = [
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-];
+import { Capture } from '../../../types/Capture';
 
-const Presenter = () => {
+interface Props {
+  captureList: Capture[];
+}
+
+const Presenter = (props: Props) => {
+  const { captureList } = props;
   return (
     <ScrollView style={styles.wrapper}>
-      {list.map((l, i) => (
+      {captureList.map((l, i) => (
         <ListItem key={i} bottomDivider>
           <ListItem.Content>
             <ListItem.Title>{l.name}</ListItem.Title>

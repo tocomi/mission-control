@@ -10,9 +10,54 @@ import {
 import { View } from '../components/Themed';
 import { CaptureInput } from '../components/molecules/CaptureInput/index';
 import { CaptureList } from '../components/molecules/CaptureList';
+import { Capture } from '../types/Capture';
+
+const list: Capture[] = [
+  {
+    name: 'Amy Farha',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    subtitle: 'Vice Chairman',
+  },
+  {
+    name: 'Amy Farha',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    subtitle: 'Vice Chairman',
+  },
+  {
+    name: 'Amy Farha',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    subtitle: 'Vice Chairman',
+  },
+  {
+    name: 'Amy Farha',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    subtitle: 'Vice Chairman',
+  },
+  {
+    name: 'Amy Farha',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    subtitle: 'Vice Chairman',
+  },
+];
 
 export default function CaptureScreen() {
   const [capture, setCapture] = React.useState<string>('');
+  const [captureList, setCaptureList] = React.useState<Capture[]>(list);
 
   const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>): void => {
     setCapture(event.nativeEvent.text);
@@ -25,7 +70,7 @@ export default function CaptureScreen() {
       keyboardVerticalOffset={Platform.OS === 'ios' ? 88 : 0}
     >
       <View style={styles.captureList}>
-        <CaptureList />
+        <CaptureList captureList={captureList} />
       </View>
       <View style={styles.input}>
         <CaptureInput
@@ -34,8 +79,14 @@ export default function CaptureScreen() {
           value={capture}
           onChange={handleChange}
           onPress={() => {
-            alert(capture);
             setCapture('');
+            setCaptureList([
+              {
+                name: capture,
+                subtitle: 'testtest',
+              },
+              ...captureList,
+            ]);
           }}
         />
       </View>
