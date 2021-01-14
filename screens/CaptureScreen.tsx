@@ -15,43 +15,15 @@ import { Capture } from '../types/Capture';
 const list: Capture[] = [
   {
     name: 'Amy Farha',
-    subtitle: 'Vice President',
+    createdAt: new Date('2020-12-24'),
   },
   {
     name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
+    createdAt: new Date('2020-12-22'),
   },
   {
     name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
-  },
-  {
-    name: 'Amy Farha',
-    subtitle: 'Vice President',
-  },
-  {
-    name: 'Chris Jackson',
-    subtitle: 'Vice Chairman',
+    createdAt: new Date('2020-12-21'),
   },
 ];
 
@@ -83,7 +55,7 @@ export default function CaptureScreen() {
             setCaptureList([
               {
                 name: capture,
-                subtitle: 'testtest',
+                createdAt: new Date(),
               },
               ...captureList,
             ]);

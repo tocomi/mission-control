@@ -2,10 +2,14 @@ import * as React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
-import { Capture } from '../../../types/Capture';
+export interface PresentedCapture {
+  name: string;
+  createdAt: string;
+  dueDate?: string;
+}
 
 interface Props {
-  captureList: Capture[];
+  captureList: PresentedCapture[];
 }
 
 const Presenter = (props: Props) => {
@@ -16,7 +20,7 @@ const Presenter = (props: Props) => {
         <ListItem key={i} bottomDivider>
           <ListItem.Content>
             <ListItem.Title>{l.name}</ListItem.Title>
-            <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
+            <ListItem.Subtitle>{l.createdAt}</ListItem.Subtitle>
           </ListItem.Content>
         </ListItem>
       ))}

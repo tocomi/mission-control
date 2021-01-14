@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Presenter } from './Presenter';
+import dayjs from 'dayjs';
 
+import { Presenter, PresentedCapture } from './Presenter';
 import { Capture } from '../../../types/Capture';
 
 interface Props {
@@ -9,7 +10,11 @@ interface Props {
 
 const CaptureList = (props: Props) => {
   const { captureList } = props;
-  return <Presenter captureList={captureList} />;
+  const convertedList: PresentedCapture[] = captureList.map((capture) => ({
+    name: capture.name,
+    createdAt: dayjs(capture.createdAt).format('YYYY/MM/DD'),
+  }));
+  return <Presenter captureList={convertedList} />;
 };
 
 export { CaptureList };

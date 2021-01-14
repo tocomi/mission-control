@@ -1,4 +1,5 @@
 export interface Capture {
   name: string;
-  subtitle: string;
+  createdAt: Date;
+  dueDate?: Date;
 }
