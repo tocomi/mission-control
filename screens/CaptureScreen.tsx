@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback } from 'react';
 import {
   NativeSyntheticEvent,
   StyleSheet,
@@ -31,9 +31,24 @@ export default function CaptureScreen() {
   const [capture, setCapture] = React.useState<string>('');
   const [captureList, setCaptureList] = React.useState<Capture[]>(list);
 
-  const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>): void => {
-    setCapture(event.nativeEvent.text);
-  };
+  const handleChange = useCallback(
+    (event: NativeSyntheticEvent<TextInputChangeEventData>): void => {
+      setCapture(event.nativeEvent.text);
+    },
+    []
+  );
+
+  const handleClick = useCallback(() => {
+    if (!capture) return;
+    setCaptureList([
+      {
+        name: capture,
+        createdAt: new Date(),
+      },
+      ...captureList,
+    ]);
+    setCapture('');
+  }, [capture, captureList]);
 
   return (
     <KeyboardAvoidingView
@@ -50,16 +65,7 @@ export default function CaptureScreen() {
           color="#28a"
           value={capture}
           onChange={handleChange}
-          onPress={() => {
-            setCapture('');
-            setCaptureList([
-              {
-                name: capture,
-                createdAt: new Date(),
-              },
-              ...captureList,
-            ]);
-          }}
+          onPress={handleClick}
         />
       </View>
     </KeyboardAvoidingView>
