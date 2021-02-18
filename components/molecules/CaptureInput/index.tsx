@@ -12,7 +12,15 @@ interface Props {
 
 const CaptureInput = (props: Props) => {
   const { placeholder, color, value, onChange, onPress } = props;
-  return <Presenter placeholder={placeholder} color={color} value={value} onChange={onChange} onPress={onPress} />;
+  return (
+    <Presenter
+      placeholder={placeholder}
+      color={color}
+      value={value}
+      onChange={onChange}
+      onPress={onPress}
+    />
+  );
 };
 
 export { CaptureInput };
